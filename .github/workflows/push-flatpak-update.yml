@@ -1,0 +1,26 @@
+name: Push Flatpak Update
+on:
+    workflow_dispatch:
+        inputs:
+            commit:
+                description: Commit pushed
+                type: string
+                required: true
+
+jobs:
+    push:
+        runs-on: ubuntu:latest
+
+        steps:
+          - name: Start Workflow
+            uses: convictional/trigger-workflow-and-wait@v1.6.5
+            with:
+                owner: ${{ github.repository_owner }}
+                repo: flatpak-pages-repo
+                github_token: ${{ github.token }}
+                client_payload: | 
+                                '{
+                                    "repo-url":"${{ github.repositoryUrl }}", 
+                                    "commit":"${{ inputs.commit }}",
+                                    "manifest":"org.flatpak.qtdemo.json"
+                                }'
