@@ -19,9 +19,4 @@ jobs:
                 repo: flatpak-pages-repo
                 workflow_file_name: update-repo.yml
                 github_token: ${{ github.token }}
-                client_payload: | 
-                                '{
-                                    "repo-url":"${{ github.repositoryUrl }}", 
-                                    "commit":"${{ inputs.commit }}",
-                                    "manifest":"org.flatpak.qtdemo.json"
-                                }'
+                client_payload: '{"repo-url":"${{ github.repositoryUrl }}", "commit":"${{ inputs.commit }}","manifest":"org.flatpak.qtdemo.json"}'
