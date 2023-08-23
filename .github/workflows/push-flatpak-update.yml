@@ -23,4 +23,4 @@ jobs:
                 workflow_file_name: update-repo.yml
                 github_token: ${{ secrets.PAT }}
                 #github_user: ${{ github.repositoryOwner }}
-                client_payload: '{"repo-url":"${{ github.repository }}", "commit":"${{ inputs.commit }}","manifest":"org.flatpak.qtdemo.json"}'
+                client_payload: '{"repo":"${{ github.repository }}", "commit":"${{ inputs.commit }}","manifest":"org.flatpak.qtdemo.json"}'
