@@ -15,8 +15,9 @@ jobs:
           - name: Start Workflow
             uses: convictional/trigger-workflow-and-wait@v1.6.5
             with:
-                owner: ${{ github.repository }}
+                owner: ${{ github.repositoryOwner }}
                 repo: flatpak-pages-repo
                 workflow_file_name: update-repo.yml
                 github_token: ${{ github.token }}
+                github_user: ${{ github.repositoryOwner }}
                 client_payload: '{"repo-url":"${{ github.repository }}", "commit":"${{ inputs.commit }}","manifest":"org.flatpak.qtdemo.json"}'
